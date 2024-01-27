@@ -4,7 +4,7 @@ import { connect } from 'cloudflare:sockets';
 
 // How to generate your own UUID:
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
-let userID = '652da35d-b59d-4ab0-af59-cb90066dcc10';
+let userID = '06792ba1-9ddf-46d5-b94d-6ddba8aaa6ed';
 
 const proxyIPs = ['23.162.136.169', 'cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
 
@@ -81,7 +81,7 @@ export default {
 					default:
 						// return new Response('Not found', { status: 404 });
 						// For any other path, reverse proxy to 'www.fmprc.gov.cn' and return the original response, caching it in the process
-						const hostnames = ['www.fmprc.gov.cn', 'www.xuexi.cn', 'www.gov.cn', 'mail.gov.cn', 'www.mofcom.gov.cn', 'www.gfbzb.gov.cn', 'www.miit.gov.cn', 'www.12377.cn'];
+						const hostnames = ['wwwbing.com'];//'www.fmprc.gov.cn', 'www.xuexi.cn', 'www.gov.cn', 'mail.gov.cn', 'www.mofcom.gov.cn', 'www.gfbzb.gov.cn', 'www.miit.gov.cn', 'www.12377.cn'
 						url.hostname = hostnames[Math.floor(Math.random() * hostnames.length)];
 						url.protocol = 'https:';
 
@@ -89,7 +89,7 @@ export default {
 						newHeaders.set('cf-connecting-ip', newHeaders.get('x-forwarded-for') || newHeaders.get('cf-connecting-ip'));
 						newHeaders.set('x-forwarded-for', newHeaders.get('cf-connecting-ip'));
 						newHeaders.set('x-real-ip', newHeaders.get('cf-connecting-ip'));
-						newHeaders.set('referer', 'https://www.google.com/q=edtunnel');
+						newHeaders.set('referer', 'https://www.bing.com');//'https://www.google.com/q=edtunnel'
 
 						request = new Request(url, {
 							method: request.method,
